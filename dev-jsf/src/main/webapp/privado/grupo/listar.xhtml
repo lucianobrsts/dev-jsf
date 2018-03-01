@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Listagem de Grupos</title></h:head> 
+<h:body> 
+	<h:form>
+		<h:messages />
+		<h:commandLink action="Novo Registro" value="#{controleGrupo.novo()}" />
+		
+		<h:dataTable value="#{controleGrupo.dao.listarTodos()}" var="obj"
+					 frame="box" rules="all" cellpadding="3">
+		
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{obj.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{obj.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink action="#{controleGrupo.alterar()}" value="Alterar" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink action="#{controleGrupo.excluir()}" value="Excluir" 
+							   onclick="if(!confirm('Confima a exclusão do grupo?')) return false"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body> 
+</html>
