@@ -2,13 +2,13 @@ package br.com.estudo.dev.jsf.controle;
 
  import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.modelo.GrupoDAO;
 
-@ManagedBean(name = "controleGrupo")
+@Named(value = "controleGrupo")
 @SessionScoped
 public class ControleGrupo implements Serializable {
 
@@ -50,6 +50,7 @@ public class ControleGrupo implements Serializable {
 		return "listar";
 	}
 	
+	// Get and Set
 	public GrupoDAO getDao() {
 		return dao;
 	}
