@@ -11,7 +11,7 @@ public class EntityManagerUtil {
 	
 	public static EntityManager getEntityManager(){
 		if(factory == null)
-			factory = Persistence.createEntityManagerFactory("projetojsf");
+			factory = Persistence.createEntityManagerFactory("dev-jsf");
 		if(em == null)
 			em = factory.createEntityManager();
 		return em;

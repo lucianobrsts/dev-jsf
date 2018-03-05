@@ -1,5 +1,6 @@
 package br.com.estudo.dev.jsf.bean;
 
+import java.io.ByteArrayInputStream;
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -15,12 +16,15 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 @Entity
 @Table(name = "FUNCIONARIO")
@@ -85,6 +89,9 @@ public class Funcionario implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "SETOR", referencedColumnName="ID_SETOR", nullable=false)
 	private Setor setor;
+	
+	@Transient
+	private StreamedContent imagem;
 	
 	public Funcionario() {}
 	
@@ -168,6 +175,15 @@ public class Funcionario implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	public StreamedContent getImagem() {
+		if(this.getFoto() != null) 
+			return new DefaultStreamedContent(new ByteArrayInputStream(this.getFoto()), "");
+		return new DefaultStreamedContent();
+	}
+	
+	public void setImagem(StreamedContent imagem) {
+		this.imagem = imagem;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -193,4 +209,5 @@ public class Funcionario implements Serializable{
 					+ "usuario = " + this.nomeUsuario + " "
 					+ "email = " + this.email + "]";
 	}
+
 }
