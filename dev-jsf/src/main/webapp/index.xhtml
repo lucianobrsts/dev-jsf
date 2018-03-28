@@ -7,11 +7,12 @@
 <f:view encoding="ISO-8859-1" contentType="text/html" >
 <h:head><title>Gerenciamento de Projetos com JSF</title></h:head> 
 <body> 
-	Sejam bem vindos ao sistema <br />
+	Sejam bem vindos ao sistema <br /><br />
 	<h:form>
 		<h:panelGrid columns="1">
-			<h:commandLink action="Grupos" value="#{controleGrupo.listar()}" /><br/>
-			<h:commandLink action="Funcionarios" value="#{controleFuncionario.listar()}" /><br/>
+			<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
+			<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
+			<h:commandLink action="privado/projeto/listar" value="Projetos" />
 		</h:panelGrid>
 	</h:form>
 </body> 

@@ -16,5 +16,4 @@ public class EntityManagerUtil {
 			em = factory.createEntityManager();
 		return em;
 	}
-	
 }

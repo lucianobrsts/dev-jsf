@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>Edição de projeto</h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		<h:panelGrid columns="2">
+			<f:facet name="header">Edição de projetos</f:facet>
+			<f:facet name="footer">
+				<div align="center">
+					<h:commandButton action="#{controleProjeto.cancelar()}" value="Cancelar" immediate="true" />
+					<h:commandButton action="#{controleProjeto.gravar()}" value="Gravar" immediate="true" />
+				</div>
+			</f:facet>
+
+			<h:outputLabel value="ID" />
+			<h:inputText value="#{controleProjeto.objeto.id}" />
+
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{controleProjeto.objeto.nome}" size="40" maxlength="40" />
+
+			<h:outputLabel value="Descricao" />
+			<h:inputTextarea value="#{controleProjeto.objeto.descricao}" rows="5" cols="60"/>
+
+			<h:outputLabel value="Inicio" />
+			<h:inputText value="#{controleProjeto.objeto.inicio}" size="12" 
+						 onkeydown="Mascara(this, Data);" onkeyup="Mascara(this, Data);" onkeypress="Mascara(this, Data);">
+				<f:converter converterId="converterCalendar" />
+			</h:inputText>
+			
+			<h:outputLabel value="Ativo" />
+			<h:selectBooleanCheckbox value="#{controleProjeto.objeto.ativo}" />
+			
+			<h:outputLabel value="Setor" />
+			<h:selectOneMenu value="#{controleProjeto.objeto.setor}" converter="#{controleProjeto.converterSetor}">
+				<f:selectItem itemLabel="Selecione um setor" noSelectionOption="true" />
+				<f:selectItems value="#{controleProjeto.daoSetor.listarTodos()}"/>
+			</h:selectOneMenu>
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

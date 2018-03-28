@@ -3,6 +3,7 @@ package br.com.estudo.dev.jsf.controle;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -20,10 +21,11 @@ import br.com.estudo.dev.jsf.modelo.SetorDAO;
 import br.com.estudo.dev.jsf.util.UtilErros;
 import br.com.estudo.dev.jsf.util.UtilMensagens;
 
-@SuppressWarnings("serial")
-@Named(value = "controleFuncionario")
+@Named
 @SessionScoped
 public class ControleFuncionario implements Serializable{
+
+	private static final long serialVersionUID = -5903801810115235100L;
 
 	private Funcionario objeto;
 
