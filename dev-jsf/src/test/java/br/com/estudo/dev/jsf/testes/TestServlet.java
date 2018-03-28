@@ -1,4 +1,4 @@
-package br.com.estudo.dev.jsf.controle;
+package br.com.estudo.dev.jsf.testes;
 
 import java.io.IOException;
 
@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.estudo.dev.jsf.controle.ControleFuncionario;
 
 /**
  * Servlet implementation class TestServlet

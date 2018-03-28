@@ -3,7 +3,7 @@ package br.com.estudo.dev.jsf.controle;
  import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
 import br.com.estudo.dev.jsf.bean.Funcionario;
 import br.com.estudo.dev.jsf.bean.Projeto;
@@ -14,7 +14,8 @@ import br.com.estudo.dev.jsf.modelo.FuncionarioDAO;
 import br.com.estudo.dev.jsf.modelo.ProjetoDAO;
 import br.com.estudo.dev.jsf.modelo.SetorDAO;
 
-@Named(value = "controleProjeto")
+@SuppressWarnings("deprecation")
+@ManagedBean(name="controleProjeto")
 @SessionScoped
 public class ControleProjeto implements Serializable {
 

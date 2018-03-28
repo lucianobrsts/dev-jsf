@@ -9,10 +9,10 @@
 <body> 
 	Sejam bem vindos ao sistema <br /><br />
 	<h:form>
-		<h:panelGrid columns="1">
+		<h:panelGrid columns="1" title="Menu">
 			<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
 			<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
-			<h:commandLink action="privado/projeto/listar" value="Projetos" />
+			<h:commandLink action="#{controleProjeto.listar()}" value="Projetos" />
 		</h:panelGrid>
 	</h:form>
 </body> 

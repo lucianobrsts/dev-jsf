@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
@@ -21,7 +20,8 @@ import br.com.estudo.dev.jsf.modelo.SetorDAO;
 import br.com.estudo.dev.jsf.util.UtilErros;
 import br.com.estudo.dev.jsf.util.UtilMensagens;
 
-@Named
+@SuppressWarnings("deprecation")
+@ManagedBean(name="controleFuncionario")
 @SessionScoped
 public class ControleFuncionario implements Serializable{
 
@@ -46,7 +46,7 @@ public class ControleFuncionario implements Serializable{
 	}
 	
 	public String listar() {
-		return "/privado/funcionario/listar";
+		return "privado/funcionario/listar?faces-redirect=true";
 	}
 	
 	public String novo() {

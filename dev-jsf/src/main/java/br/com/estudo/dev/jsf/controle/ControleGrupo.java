@@ -3,12 +3,13 @@ package br.com.estudo.dev.jsf.controle;
  import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
 import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.modelo.GrupoDAO;
 
-@Named(value = "controleGrupo")
+@SuppressWarnings("deprecation")
+@ManagedBean(name = "controleGrupo")
 @SessionScoped
 public class ControleGrupo implements Serializable {
 
