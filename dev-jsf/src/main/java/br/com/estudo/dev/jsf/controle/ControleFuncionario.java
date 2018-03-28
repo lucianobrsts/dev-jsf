@@ -44,7 +44,7 @@ public class ControleFuncionario implements Serializable{
 		converterGrupo = new ConverterGrupo();
 		converterSetor = new ConverterSetor();
 	}
-	
+	// testando o git
 	public String listar() {
 		return "privado/funcionario/listar?faces-redirect=true";
 	}
