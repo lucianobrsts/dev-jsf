@@ -14,3 +14,5 @@ Foram abordados conceitos como:
  - Templates com Facelets, 
  - Integração com JPA,
  - Desenvolvimento de CRUD
+ 
+ Como adicional, foi acrescentado a utilização do Maven para controle de dependências. 
