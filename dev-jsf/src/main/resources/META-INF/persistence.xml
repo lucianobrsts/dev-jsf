@@ -6,13 +6,12 @@
 	
 	<persistence-unit name="dev-jsf" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistence</provider>
+        <class>br.com.estudo.dev.jsf.bean.Funcionario</class>
+        <class>br.com.estudo.dev.jsf.bean.Grupo</class>
+        <class>br.com.estudo.dev.jsf.bean.Projeto</class>
+        <class>br.com.estudo.dev.jsf.bean.ProjetoFuncionario</class>
+        <class>br.com.estudo.dev.jsf.bean.Setor</class>
         
-		<class>br.com.estudo.dev.jsf.bean.Funcionario</class>
-		<class>br.com.estudo.dev.jsf.bean.Grupo</class>
-		<class>br.com.estudo.dev.jsf.bean.Projeto</class>
-		<class>br.com.estudo.dev.jsf.bean.ProjetoFuncionario</class>
-		<class>br.com.estudo.dev.jsf.bean.Setor</class>
-		
 		<properties>
 			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/dev-jsf" />
 			<property name="hibernate.connection.username" value="postgres" />
