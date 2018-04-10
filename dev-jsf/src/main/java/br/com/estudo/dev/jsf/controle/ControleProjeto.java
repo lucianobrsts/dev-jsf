@@ -1,12 +1,14 @@
 package br.com.estudo.dev.jsf.controle;
 
  import java.io.Serializable;
+import java.util.Calendar;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import br.com.estudo.dev.jsf.bean.Funcionario;
 import br.com.estudo.dev.jsf.bean.Projeto;
+import br.com.estudo.dev.jsf.bean.ProjetoFuncionario;
 import br.com.estudo.dev.jsf.bean.Setor;
 import br.com.estudo.dev.jsf.conversores.ConverterFuncionario;
 import br.com.estudo.dev.jsf.conversores.ConverterSetor;
@@ -14,13 +16,11 @@ import br.com.estudo.dev.jsf.modelo.FuncionarioDAO;
 import br.com.estudo.dev.jsf.modelo.ProjetoDAO;
 import br.com.estudo.dev.jsf.modelo.SetorDAO;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({ "deprecation", "serial" })
 @ManagedBean(name="controleProjeto")
 @SessionScoped
 public class ControleProjeto implements Serializable {
 
-	private static final long serialVersionUID = -4324966222074044364L;
-	
 	private Projeto objeto;
 	private Funcionario funcionario;
 	private Setor setor;
@@ -31,6 +31,12 @@ public class ControleProjeto implements Serializable {
 	
 	private ConverterFuncionario converterFuncionario;
 	private ConverterSetor converterSetor;
+	
+	private Integer cargaHoraria;
+	private Boolean gestor;
+	private Boolean addFunc = false;
+	private Calendar inicioParticipacao;
+	private Calendar fimParticipacao;
 
 	public ControleProjeto() {
 		this.dao = new ProjetoDAO();
@@ -45,27 +51,56 @@ public class ControleProjeto implements Serializable {
 	
 	public String novo() {
 		this.objeto = new Projeto();
+		this.addFunc = false;
 		return "form";
 	}
 	
 	public String cancelar() {
+		this.addFunc = false;
+		this.dao.rollback();
 		return "listar";
 	}
 	
 	public String gravar() {
-		if(this.dao.gravar(this.objeto))
+		if(this.dao.gravar(this.objeto)) {
+			this.addFunc = false;
 			return "listar";
-		else return "form";
+		} else return "form";
 	}
 	
 	public String alterar(Projeto obj) {
 		this.objeto = obj;
+		this.addFunc = false;
 		return "form";
 	}
 	
 	public String excluir(Projeto obj) {
 		this.dao.excluir(obj);
 		return "listar";
+	}
+	
+	public void removerFuncionario(ProjetoFuncionario obj) {
+		this.objeto.removerFuncionario(obj);
+	}
+	
+	public void adicionarFuncionario(ProjetoFuncionario obj) {
+		this.addFunc = true;
+	}
+	
+	public void cancelarFuncionario() {
+		this.addFunc = false;
+	}
+	
+	public void salvarFuncionario() {
+		ProjetoFuncionario obj = new ProjetoFuncionario();
+		obj.setCargaHoraria(cargaHoraria);
+		obj.setFuncionario(funcionario);
+		obj.setInicioParticipacao(inicioParticipacao);
+		obj.setFimParticipacao(fimParticipacao);
+		obj.setGestor(gestor);
+		
+		this.objeto.adicionarFuncionario(obj);
+		this.addFunc = false;
 	}
 	
 	// Get and Set
@@ -128,5 +163,45 @@ public class ControleProjeto implements Serializable {
 
 	public void setDaoSetor(SetorDAO daoSetor) {
 		this.daoSetor = daoSetor;
+	}
+
+	public Integer getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(Integer cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public Boolean getGestor() {
+		return gestor;
+	}
+
+	public void setGestor(Boolean gestor) {
+		this.gestor = gestor;
+	}
+
+	public Boolean getAddFunc() {
+		return addFunc;
+	}
+
+	public void setAddFunc(Boolean addFunc) {
+		this.addFunc = addFunc;
+	}
+
+	public Calendar getInicioParticipacao() {
+		return inicioParticipacao;
+	}
+
+	public void setInicioParticipacao(Calendar inicioParticipacao) {
+		this.inicioParticipacao = inicioParticipacao;
+	}
+
+	public Calendar getFimParticipacao() {
+		return fimParticipacao;
+	}
+
+	public void setFimParticipacao(Calendar fimParticipacao) {
+		this.fimParticipacao = fimParticipacao;
 	} 
 }

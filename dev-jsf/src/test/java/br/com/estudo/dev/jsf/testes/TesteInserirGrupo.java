@@ -6,7 +6,6 @@ import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.jpa.EntityManagerUtil;
 
 public class TesteInserirGrupo {
-
 	public static void main(String[] args) {
 		EntityManager em = EntityManagerUtil.getEntityManager();
 		

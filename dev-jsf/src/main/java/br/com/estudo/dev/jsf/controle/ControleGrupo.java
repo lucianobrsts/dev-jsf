@@ -2,8 +2,8 @@ package br.com.estudo.dev.jsf.controle;
 
  import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.modelo.GrupoDAO;
