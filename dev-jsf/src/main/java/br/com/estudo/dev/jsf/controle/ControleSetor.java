@@ -16,10 +16,13 @@ public class ControleSetor implements Serializable{
 	private DAOSetor<Setor> dao;
 	private Setor objeto;
 	
+<<<<<<< HEAD
 	public ControleSetor(){
 		dao = new DAOSetor<Setor>();
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 	public String listar(){
 		return "privado/setor/listar?faces-redirect=true";
 	}

@@ -11,6 +11,7 @@
 			<f:facet name="header">Dados do usuario</f:facet>
 			<f:facet name="footer">
 				<div align="center">
+<<<<<<< HEAD
 					<h:commandButton action="#{controleLogin.efetuarLogin()}" value="Login" />
 				</div>
 			</f:facet>
@@ -20,6 +21,17 @@
 			
 			<h:outputLabel value="Senha" />
 			<h:inputSecret value="#{controleLogin.senha}" />
+=======
+					<h:commandButton action="#{controleLoginBean.efetuarLogin()}" value="Login" />
+				</div>
+			</f:facet>
+			
+			<h:outputLabel value="Usuário" />
+			<h:inputText value="#{controleLoginBean.usuario}" />
+			
+			<h:outputLabel value="Senha" />
+			<h:inputSecret value="#{controleLoginBean.senha}" />
+>>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 		</h:panelGrid>	
 	</h:form>
 </body> 

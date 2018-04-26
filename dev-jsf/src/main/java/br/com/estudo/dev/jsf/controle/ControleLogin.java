@@ -9,7 +9,11 @@ import br.com.estudo.dev.jsf.bean.Funcionario;
 import br.com.estudo.dev.jsf.modelo.FuncionarioDAO;
 import br.com.estudo.dev.jsf.util.UtilMensagens;
 
+<<<<<<< HEAD
 @ManagedBean(name = "controleLogin")
+=======
+@ManagedBean(name = "controleLoginBean")
+>>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 @SessionScoped
 public class ControleLogin implements Serializable {
 

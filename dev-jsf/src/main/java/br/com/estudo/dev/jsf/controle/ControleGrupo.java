@@ -3,6 +3,7 @@ package br.com.estudo.dev.jsf.controle;
  import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.PersistenceContext;
 
@@ -19,7 +20,11 @@ public class ControleGrupo implements Serializable {
 	private GrupoDAO dao;
 	private Grupo objeto;
 	
+<<<<<<< HEAD
 	@PersistenceContext
+=======
+	@ManagedProperty(value="#{controleLogin}")
+>>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 	private ControleLogin controleLogin; 
 	
 	public ControleGrupo() {
