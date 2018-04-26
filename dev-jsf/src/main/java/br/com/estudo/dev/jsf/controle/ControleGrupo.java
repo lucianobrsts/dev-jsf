@@ -20,11 +20,7 @@ public class ControleGrupo implements Serializable {
 	private GrupoDAO dao;
 	private Grupo objeto;
 	
-<<<<<<< HEAD
 	@PersistenceContext
-=======
-	@ManagedProperty(value="#{controleLogin}")
->>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 	private ControleLogin controleLogin; 
 	
 	public ControleGrupo() {

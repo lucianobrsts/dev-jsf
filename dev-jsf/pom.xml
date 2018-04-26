@@ -97,9 +97,6 @@
 			<scope>test</scope>
 		</dependency>
 
-<<<<<<< HEAD
-		<!-- Commons-io -->
-=======
 		<!-- ADICIONAIS -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -114,14 +111,12 @@
 			<version>6.0.7.Final</version>
 		</dependency>
 
->>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.2</version>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -136,8 +131,6 @@
 			<version>42.2.2</version>
 		</dependency>
 
-=======
->>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 	</dependencies>
 
 	<properties>

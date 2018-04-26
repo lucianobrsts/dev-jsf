@@ -7,13 +7,12 @@
 <h:head><title>Listagem de setores</title></h:head> 
 <body> 
 	<h:form>
-<<<<<<< HEAD
-		<h:messages />
-		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /> <br />
+		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /><br />
 		<h:commandLink action="#{controleSetor.novo()}" value="Novo Registro" />
+		<h:messages />
 		
 		<h:panelGrid columns="5">
-			<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}" onverter="#{controleSetor.dao.converterOrdem}">
+			<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}" converter="#{controleSetor.dao.converterOrdem}">
 				<f:selectItems value="#{controleSetor.dao.listaOrdem}"/>
 				<f:ajax execute="@form" render="@form"/>
 			</h:selectOneMenu>
@@ -23,27 +22,6 @@
 			
 			<h:outputLabel value="Maximo objetos: " />
 			<h:outputText value="#{controleSetor.dao.maximoObjetos}" size="3" />
-=======
-		<h:commandLink action="/index?faces-redirect=true" value="Inicio" />
-		<h:commandLink action="#{controleSetor.novo()}" value="Novo Registro" />
-		<h:messages />
-		
-		<h:panelGrid columns="6"> 
-			<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}" converter="#{controleSetor.dao.converterOrdem}">
-				<f:selectItem value="#{controleSetor.dao.listaOrdem}"/>
-				<f:ajax execute="@form" render="@form" />
-			</h:selectOneMenu>
-			
-			<h:outputLabel value="Filtro: " />
-			<h:outputText value="#{controleSetor.dao.filtro}" >
-				<f:ajax execute="@form" render="@form" event="keyup" />
-			</h:outputText>
-			
-			<h:outputLabel value="Maximo objetos: " />
-			<h:outputText value="#{controleSetor.dao.maximoObjetos}" size="3">
-				<f:ajax execute="@form" render="@form" event="keyup" />
-			</h:outputText>
->>>>>>> branch 'master' of https://github.com/egilakaren/dev-jsf.git
 		</h:panelGrid>
 		
 		<h:dataTable value="#{controleSetor.dao.listarTodos()}" var="obj"

@@ -84,7 +84,7 @@ public class GenericDAO<T> implements Serializable {
 	public List<T> listarTodos(){
 		String jpql = "from " + classe.getSimpleName();
 		if(ordemAtual != null)
-			jpql += "order by " + ordemAtual.getAtributo();
+			jpql += " order by " + ordemAtual.getAtributo();
 		return em.createQuery(jpql).getResultList();
 	}
 	
