@@ -8,6 +8,7 @@
 <h:body> 
 	<h:form>
 		<h:messages />
+		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /> <br />
 		<h:commandLink action="Novo Registro" value="#{controleGrupo.novo()}" />
 		
 		<h:panelGrid columns="6"> 
@@ -18,14 +19,10 @@
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Filtro: " />
-			<h:outputText value="#{controleGrupo.dao.filtro}" >
-				<f:ajax execute="@form" render="@form" event="keyup" />
-			</h:outputText>
+			<h:outputText value="#{controleGrupo.dao.filtro}" />
 			
 			<h:outputLabel value="Maximo objetos: " />
-			<h:outputText value="#{controleGrupo.dao.maximosObjetos}" size="3">
-				<f:ajax execute="@form" render="@form" event="keyup" />
-			</h:outputText>
+			<h:outputText value="#{controleGrupo.dao.maximosObjetos}" size="3" />
 		</h:panelGrid>
 		
 		<h:dataTable value="#{controleGrupo.dao.listarTodos()}" var="obj"

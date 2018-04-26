@@ -20,7 +20,6 @@ import br.com.estudo.dev.jsf.modelo.SetorDAO;
 import br.com.estudo.dev.jsf.util.UtilErros;
 import br.com.estudo.dev.jsf.util.UtilMensagens;
 
-@SuppressWarnings("deprecation")
 @ManagedBean(name="controleFuncionario")
 @SessionScoped
 public class ControleFuncionario implements Serializable{
@@ -44,7 +43,7 @@ public class ControleFuncionario implements Serializable{
 		converterGrupo = new ConverterGrupo();
 		converterSetor = new ConverterSetor();
 	}
-	// testando o git
+
 	public String listar() {
 		return "privado/funcionario/listar?faces-redirect=true";
 	}

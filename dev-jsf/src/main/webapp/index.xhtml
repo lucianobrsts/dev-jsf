@@ -9,11 +9,20 @@
 <body> 
 	Sejam bem vindos ao sistema <br /><br />
 	<h:form>
-		<h:panelGrid columns="1" title="Menu">
-			<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
-			<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
-			<h:commandLink action="#{controleProjeto.listar()}" value="Projetos" />
-		</h:panelGrid>
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			<h:panelGrid columns="1" title="Menu">
+				<h:outputLabel value="Usuario Logado: #{controleLogin.usuarioLogado.nome}" />
+				<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
+				<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
+				<h:commandLink action="#{controleProjeto.listar()}" value="Projetos" />
+				<h:commandLink action="#{controleSetor.listar()}" value="Setores" />
+				<h:commandLink action="#{controleLogin.efetuarLogout()}" value="Sair" />
+			</h:panelGrid>
+		</h:panelGroup>
+		
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
+			<h:commandLink action="#{controleLogin.paginaLogin()}" value="Login" />
+		</h:panelGroup>
 	</h:form>
 </body> 
 </f:view>

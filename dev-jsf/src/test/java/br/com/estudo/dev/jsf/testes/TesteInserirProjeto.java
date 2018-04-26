@@ -15,28 +15,28 @@ public class TesteInserirProjeto {
 	public static void main(String[] args) {
 		EntityManager em = EntityManagerUtil.getEntityManager();
 		
-		Setor s = em.find(Setor.class, 1);
-		Funcionario f = em.find(Funcionario.class, 1);
+		Setor setor = em.find(Setor.class, 1);
+		Funcionario func = em.find(Funcionario.class, 2);
 		
-		Projeto p = new Projeto();
-		p.setAtivo(true);
-		p.setDescricao("Meu novo projeto com JSF");
-		p.setFim(Calendar.getInstance());
-		p.setInicio(Calendar.getInstance());
-		p.setNome("Sistema de funcionarios");
-		p.setSetor(s);
+		Projeto projeto = new Projeto();
+		projeto.setAtivo(true);
+		projeto.setDescricao("Meu novo projeto com JSF");
+		projeto.setFim(Calendar.getInstance());
+		projeto.setInicio(Calendar.getInstance());
+		projeto.setNome("Sistema de funcionarios");
+		projeto.setSetor(setor);
 		
 		ProjetoFuncionario pf = new ProjetoFuncionario();
 		pf.setCargaHoraria(100);
 		pf.setFimParticipacao(Calendar.getInstance());
-		pf.setInicioParticipacao(Calendar.getInstance());
+		pf.setFuncionario(func);
 		pf.setGestor(true);
-		pf.setFuncionario(f);
+		pf.setInicioParticipacao(Calendar.getInstance());
 		
-		p.adicionarFuncionario(pf);		
+		projeto.adicionarFuncionario(pf);
 		
 		em.getTransaction().begin();
-		em.persist(p);
+		em.persist(projeto);
 		em.getTransaction().commit();
 		System.out.println("Inserção realizada com sucesso!");
 

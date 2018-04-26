@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head><title>Listagem de setores</title></h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /> <br />
+		<h:commandLink action="#{controleSetor.novo()}" value="Novo Registro" />
+		
+		<h:panelGrid columns="5">
+			<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}" onverter="#{controleSetor.dao.converterOrdem}">
+				<f:selectItems value="#{controleSetor.dao.listaOrdem}"/>
+				<f:ajax execute="@form" render="@form"/>
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Filtro: " />
+			<h:outputText value="#{controleSetor.dao.filtro}" />
+			
+			<h:outputLabel value="Maximo objetos: " />
+			<h:outputText value="#{controleSetor.dao.maximoObjetos}" size="3" />
+		</h:panelGrid>
+		
+		<h:dataTable value="#{controleSetor.dao.listarTodos()}" var="obj"
+					 frame="box" rules="all" cellpadding="3">
+			<f:facet name="header">Listagem de Setores</f:facet>		
+			<f:facet name="footer">
+				<div align="center">
+					<h:outputLabel value="#{controleSetor.dao.mensagemNavegacao}" /><br />
+					<h:commandButton action="#{controleSetor.dao.primeiro()}" value="Primeiro">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandButton>
+					<h:commandButton action="#{controleSetor.dao.anterior()}" value="Anterior">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandButton>
+					<h:commandButton action="#{controleSetor.dao.proximo()}" value="Proximo">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandButton>
+					<h:commandButton action="#{controleSetor.dao.ultimo()}" value="Ultimo">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandButton>
+				</div>
+			</f:facet>		
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{obj.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{obj.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink action="#{controleSetor.alterar()}" value="Alterar" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink action="#{controleSetor.excluir()}" value="Excluir" 
+							   onclick="if(!confirm('Confima a exclusão do setor?')) return false"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</body> 
+</html>

@@ -9,6 +9,8 @@
 <h:body> 
 	<h:form>
 		<h:messages />
+		<h:commandLink action="/index?faces-redirect=true" value="Inicio" /> <br />
+		
 		<h:dataTable value="#{controleFuncionario.dao.listarTodos()}" var="obj"
 					 frame="box" rules="all" cellpadding="3">
 					 
