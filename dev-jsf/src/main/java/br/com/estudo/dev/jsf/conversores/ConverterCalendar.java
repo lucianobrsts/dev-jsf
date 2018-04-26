@@ -8,7 +8,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@SuppressWarnings("rawtypes")
 @FacesConverter(value="converterCalendar")
 public class ConverterCalendar implements Converter{
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

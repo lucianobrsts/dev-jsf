@@ -29,7 +29,7 @@ public class GrupoDAO {
 			if(ordem.equals("id")) {
 				try {
 					Integer.parseInt(filtro);
-					where = " where " + this.ordem + " = " + this.filtro + " ";
+					where = " where " + this.ordem + " = '" + this.filtro + "' ";
 				} catch (Exception e) {
 				}
 			} 

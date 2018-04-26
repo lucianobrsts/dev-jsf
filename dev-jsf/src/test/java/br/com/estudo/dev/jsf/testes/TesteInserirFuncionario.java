@@ -19,7 +19,7 @@ public class TesteInserirFuncionario {
 		
 		Funcionario f = new Funcionario();
 		f.setNome("Francisco");
-		f.setCpf("111.111.111-11");
+		f.setCpf("684.504.500-39");
 		f.setEmail("chico@gmail.com");
 		f.setSalario(2000.00);
 		f.setNascimento(Calendar.getInstance());

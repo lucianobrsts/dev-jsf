@@ -5,8 +5,6 @@
              version="2.1">
 	
 	<persistence-unit name="dev-jsf" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistence</provider>
-        
         <class>br.com.estudo.dev.jsf.bean.Funcionario</class>
         <class>br.com.estudo.dev.jsf.bean.Grupo</class>
         <class>br.com.estudo.dev.jsf.bean.Projeto</class>

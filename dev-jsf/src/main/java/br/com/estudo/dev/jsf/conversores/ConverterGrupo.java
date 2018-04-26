@@ -9,7 +9,7 @@ import javax.faces.convert.Converter;
 import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.jpa.EntityManagerUtil;
 
-@SuppressWarnings({ "serial", "rawtypes" })
+@SuppressWarnings({ "serial" })
 public class ConverterGrupo implements Converter, Serializable{
 
 	// converte da tela para o objeto 

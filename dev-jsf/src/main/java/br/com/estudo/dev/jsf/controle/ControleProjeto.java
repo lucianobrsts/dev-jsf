@@ -16,7 +16,7 @@ import br.com.estudo.dev.jsf.modelo.FuncionarioDAO;
 import br.com.estudo.dev.jsf.modelo.ProjetoDAO;
 import br.com.estudo.dev.jsf.modelo.SetorDAO;
 
-@SuppressWarnings({ "deprecation", "serial" })
+@SuppressWarnings({ "serial" })
 @ManagedBean(name="controleProjeto")
 @SessionScoped
 public class ControleProjeto implements Serializable {

@@ -3,12 +3,13 @@ package br.com.estudo.dev.jsf.controle;
  import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import br.com.estudo.dev.jsf.bean.Grupo;
 import br.com.estudo.dev.jsf.modelo.GrupoDAO;
+import br.com.estudo.dev.jsf.util.UtilMensagens;
 
-@SuppressWarnings("deprecation")
 @ManagedBean(name = "controleGrupo")
 @SessionScoped
 public class ControleGrupo implements Serializable {
@@ -17,6 +18,9 @@ public class ControleGrupo implements Serializable {
 	
 	private GrupoDAO dao;
 	private Grupo objeto;
+	
+	@ManagedProperty(value="#{controleLogin}")
+	private ControleLogin controleLogin; 
 	
 	public ControleGrupo() {
 		this.dao = new GrupoDAO();
@@ -47,7 +51,9 @@ public class ControleGrupo implements Serializable {
 	}
 	
 	public String excluir(Grupo obj) {
-		this.dao.excluir(obj);
+		if(!controleLogin.getUsuarioLogado().getGrupo().getNome().equals("Administradores"))
+			this.dao.excluir(obj);
+		else UtilMensagens.mensagemErro("Usuário não tem autorização para a exclusão!");
 		return "listar";
 	}
 	
